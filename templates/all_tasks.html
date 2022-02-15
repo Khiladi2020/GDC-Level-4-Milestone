@@ -1,0 +1,24 @@
+<h1>Tasks Management System</h1>
+
+<h2>All Tasks</h2>
+<h3>Completed Tasks</h3>
+<ul style="list-style: none">
+    {% for task in completed_tasks%}
+    <li>
+        <b>{{forloop.counter}}.</b> {{task}} | 
+        <a href="/delete-task/completed/{{forloop.counter}}">delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+<h3>Pending Tasks</h3>
+<ul style="list-style: none">
+    {% for task in pending_tasks%}
+    <li>
+        <b>{{forloop.counter}}.</b> {{task}} | 
+        <a href="/delete-task/{{forloop.counter}}">delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+Server Start Time: {% firstof time "Unknown" %}
